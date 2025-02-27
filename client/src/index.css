@@ -1,0 +1,83 @@
+#logo {
+  width: 120px;
+}
+
+#cart {
+  color: white;
+}
+
+.sc1 {
+  height: 52px;
+  margin-top: 10px;
+  background-color: rgba(226, 217, 250, 1);
+}
+
+.sc1 h3 {
+  text-align: center;
+  margin-top: 10p;
+  padding-top: 10px;
+}
+
+.sc2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(168px, 199px));
+  gap: 1rem;
+
+  padding-top: 1rem;
+}
+
+.grid-img {
+  width: 56px;
+  height: 56px;
+}
+
+.grid-container {
+  width: 120px;
+  background-color: rgba(245, 245, 245, 1);
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.sc2 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.sc2-heading {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.sc2-img {
+  width: 320px;
+  height: 320px;
+}
+
+.main-div{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+#acclean {
+  width: 410px;
+}
+
+.card-text{
+   display: flex;
+   gap: 12px;
+}
+
+
+.listitem{
+
+  color: green;
+}
