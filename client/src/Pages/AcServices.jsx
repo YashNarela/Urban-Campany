@@ -2,12 +2,46 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { IoMdStar } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
-
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router';
 
 import accl from "../assets/acclean.webp"
 
+
+import { Add, Remove } from "../redux/CreateSlice"
+import { useSelector, useDispatch } from 'react-redux'
+
+
+
+
 const AcServices = () => {
+
+
+  const selectIt = useSelector((state) => (state.cart.value))
+
+  const dispatch = useDispatch()
+
+  console.log(selectIt);
+
+
+
+  const AddIt = () => {
+
+
+
+    dispatch(Add())
+
+
+
+  }
+
+  const RemoveIt = () => {
+
+    dispatch(Remove())
+  }
+
+
+
   return (
     <div>
 
@@ -49,19 +83,24 @@ const AcServices = () => {
               <Card.Text>
 
                 <div className='card-text' >
-                <h4>Foam Jet Services</h4>
-                <button>Add</button>
+                  <h4>Foam Jet Services</h4>
+
                 </div>
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item className='listitem' >  Add more and save 23%</ListGroup.Item>
               <ListGroup.Item>Indoor unit cleaning with water jet spray</ListGroup.Item>
-              <ListGroup.Item>Applicable for both window & split ACs</ListGroup.Item>
+              <ListGroup.Item>   <Button variant="success" size="sm" onClick={AddIt}  >Add</Button>
+
+
+                {selectIt}
+
+                <Button variant="danger" size="sm" onClick={RemoveIt} >Remove</Button></ListGroup.Item>
             </ListGroup>
             <Card.Body>
-              <Card.Link as={Link}  to="/" >View Details</Card.Link>
-             
+              <Card.Link as={Link} to="/" >View Details</Card.Link>
+
             </Card.Body>
           </Card>
 
@@ -71,14 +110,18 @@ const AcServices = () => {
         <div>
           <Card style={{ width: '18rem' }}>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+              <Card.Title>Cart</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted"> </Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
+
+
+             
+
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item className='listitem' >    <Button  >-</Button>{ selectIt }<Button>+</Button></ListGroup.Item>
+              </ListGroup>
             </Card.Body>
           </Card>
         </div>

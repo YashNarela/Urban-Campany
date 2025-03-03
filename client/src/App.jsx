@@ -12,9 +12,10 @@ import Login from './Pages/Login';
 import AcServices from "./Pages/AcServices"
 import Register from './Pages/Register';
 import Dashboard from './Pages/Dashboard';
+import EditData from './Pages/EditData';
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
             <Route path='/dash' element={<Dashboard />} />
 
             <Route path='/acservice' element={< AcServices />}/>
+            <Route path='/edit/:id' element={< EditData />}/>
           </Route>
         </Routes>
 

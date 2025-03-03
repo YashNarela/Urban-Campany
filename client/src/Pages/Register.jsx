@@ -52,7 +52,7 @@ const Register = () => {
               required
               type="text"
               placeholder="First name"
-              defaultValue="Yash"
+           
               name='first'
               onChange={onChangeHandler}
             />
@@ -65,7 +65,7 @@ const Register = () => {
               type="text"
               placeholder="Last name"
               name='last'
-              defaultValue="Narela"
+            
               onChange={onChangeHandler}
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>

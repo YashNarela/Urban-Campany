@@ -7,10 +7,9 @@ import { useNavigate } from 'react-router';
 const Login = () => {
 
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const [inp, setInp] = useState({})
-  console.log(inp);
 
   const handleSubmit = async (e) => {
 
@@ -22,7 +21,9 @@ const Login = () => {
 
     console.log(rsp.data);
 
-    navigate("/dash")
+    localStorage.setItem("ob", JSON.stringify({ userData: rsp.data.loginrsp ,toki:rsp.data.toki}))
+
+    navigate("/home")
 
   };
 
