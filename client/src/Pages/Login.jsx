@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from "axios"
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 const Login = () => {
 
@@ -21,9 +22,11 @@ const Login = () => {
 
     console.log(rsp.data);
 
-    localStorage.setItem("ob", JSON.stringify({ userData: rsp.data.loginrsp ,toki:rsp.data.toki}))
+    localStorage.setItem("ob", JSON.stringify({ userData: rsp.data.loginrsp, toki: rsp.data.toki }))
 
     navigate("/home")
+
+    toast.success(rsp.data.msg)
 
   };
 

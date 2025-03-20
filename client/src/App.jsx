@@ -8,11 +8,12 @@ import Insert from './Pages/Insert';
 import Display from './Pages/Display';
 import Login from './Pages/Login';
 
-
+import { ToastContainer, toast } from 'react-toastify';
 import AcServices from "./Pages/AcServices"
 import Register from './Pages/Register';
 import Dashboard from './Pages/Dashboard';
 import EditData from './Pages/EditData';
+import InsertData from './Pages/InsertData';
 
 function App() {
 
@@ -34,15 +35,24 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/dash' element={<Dashboard />} />
-
-            <Route path='/acservice' element={< AcServices />}/>
-            <Route path='/edit/:id' element={< EditData />}/>
+            <Route path='/insertdata' element={<InsertData />}/>
+            <Route path='/acservice' element={< AcServices />} />
+            <Route path='/edit/:id' element={< EditData />} />
           </Route>
+
+
+        
+
+
+         
+
         </Routes>
 
 
       </BrowserRouter>
 
+
+      <ToastContainer />
 
     </>
   )

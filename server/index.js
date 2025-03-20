@@ -12,6 +12,7 @@ app.use(cors());
 var jsonParser = bodyParser.json();
 
 app.use(jsonParser)
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(urlencodedParser)
 const route = require("./routers/router");

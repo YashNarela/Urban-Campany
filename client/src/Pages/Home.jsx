@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 import inst from "../assets/electrician.webp"
@@ -8,9 +8,59 @@ import Purifier from "../assets/waterpurifer.webp"
 import clean from "../assets/cleaning.webp"
 import Mssg from "../assets/Message.webp"
 import Pureit from './Ac'
+import SliderCard from './SliderCard'
+import { useNavigate } from 'react-router'
+
+import axios from "axios"
+import { toast } from 'react-toastify'
 const Home = () => {
 
+  const navigate = useNavigate()
   const [modalShow, setModalShow] = useState(false)
+
+
+
+  async function AuthCheck() {
+
+
+    let obj =  await JSON.parse(localStorage.getItem("ob"))
+
+    let token = obj.toki
+
+
+    console.log(token);
+    
+
+    if (!token) {
+
+      navigate("/login")
+
+      toast.error("Please login first")
+
+    }
+
+
+    let baseurl = import.meta.env.VITE_API_URL
+
+    let api = `${baseurl}/user/auth`
+
+    let rsp = await axios.post(api, null, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    console.log(rsp.data);
+
+
+
+
+  }
+
+  useEffect(() => {
+
+    AuthCheck()
+  }, [])
+
+
 
 
   return (
@@ -37,7 +87,7 @@ const Home = () => {
                 <p>Womens Salon</p>
               </div>
               <div className="grid-container" >
-                <img className="grid-img" src={Purifier} alt=""  />
+                <img className="grid-img" src={Purifier} alt="" />
                 <p  >Purifier</p>
               </div>
               <div className="grid-container" >
@@ -86,6 +136,13 @@ const Home = () => {
 
 
       <Pureit modalShow={modalShow} setModalShow={setModalShow} />
+
+      <div style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}>
+
+
+      </div>
+
+      <SliderCard />
 
 
 

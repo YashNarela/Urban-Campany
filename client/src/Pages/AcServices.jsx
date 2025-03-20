@@ -10,12 +10,15 @@ import accl from "../assets/acclean.webp"
 
 import { Add, Remove } from "../redux/CreateSlice"
 import { useSelector, useDispatch } from 'react-redux'
+import { useState } from 'react';
 
 
 
-
+import CardLayout from './CardLayout';
+import SliderCard from './SliderCard';
 const AcServices = () => {
 
+  const [cardata, setCarddata] = useState([])
 
   const selectIt = useSelector((state) => (state.cart.value))
 
@@ -26,6 +29,7 @@ const AcServices = () => {
 
 
   const AddIt = () => {
+
 
 
 
@@ -46,32 +50,12 @@ const AcServices = () => {
     <div>
 
       <h3>Ac Services</h3>
-
+      <Card />
 
 
       <div className='main-div' >
 
-        <div>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-            <Card.Body>
-              <Card.Title> <h1>Ac Service and Repair</h1> </Card.Title>
-              <Card.Text>
-                <IoMdStar /> 4.82m
-              </Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item><TiTick /> UC COVER  </ListGroup.Item>
-              <ListGroup.Item>select a service </ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
-            <Card.Body>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
-          </Card>
-
-        </div>
+        <CardLayout />
         <div>
 
 
@@ -115,12 +99,12 @@ const AcServices = () => {
               <Card.Text>
 
 
-             
+
 
               </Card.Text>
 
               <ListGroup className="list-group-flush">
-                <ListGroup.Item className='listitem' >    <Button  >-</Button>{ selectIt }<Button>+</Button></ListGroup.Item>
+                <ListGroup.Item className='listitem' >    <Button  >-</Button>{selectIt}<Button>+</Button></ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>
@@ -128,6 +112,9 @@ const AcServices = () => {
       </div>
 
 
+
+
+      <SliderCard />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { MdDeleteSweep } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 const Dashboard = () => {
 
   const navigate = useNavigate()
@@ -109,7 +109,11 @@ const Dashboard = () => {
           <h2>Admin Dashboard</h2>
           <ul>
             <li><a href="#" onClick={clickHandler} >Registers</a></li>
-            <li><a href="users.html">Registered Users</a></li>
+            <li>
+
+              <Link to="/insertdata"   > Registered Users   </Link>
+
+            </li>
           </ul>
         </div>
       </div>
