@@ -3,7 +3,11 @@ const DataHandler=async (req,res) => {
     
     try {
         
-        console.log(req.files);
+        
+        console.log(req.file);
+        
+        console.log(req.body);
+        
 
         res.send("ok")
         

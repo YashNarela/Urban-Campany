@@ -14,16 +14,16 @@ const { Auth, isAdmin } = require("../middleware/auth");
 
 const { Login } = require("../controllers/login");
 
-const {multer}=require("../middleware/multer")
+const { upload } = require("../middleware/multer");
 
-const {DataHandler}= require("../controllers/datahandler")
+const { DataHandler } = require("../controllers/datahandler");
 route.post("/createuser", createUser);
 
 route.post("/login", Login);
 route.post("/update", Update);
 route.post("/auth", Auth, isAdmin);
 
-route.post("/insertimg",multer,DataHandler );
+route.post("/insertimg", upload.single("imglelo"), DataHandler);
 
 route.get("/getdata", GetData);
 

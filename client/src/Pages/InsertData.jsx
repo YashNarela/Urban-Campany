@@ -25,7 +25,7 @@ const InsertData = () => {
 
             console.log(imgInsert);
 
-            setImgInsert({ [e.target.name]: e.target.files[0] });
+            setImgInsert(e.target.files[0]);
 
 
 
@@ -47,10 +47,10 @@ const InsertData = () => {
 
             const formdata = new FormData()
 
-            formdata.append("images", imageHandler)
+            formdata.append("imglelo", imgInsert)
 
 
-            let rsp = await axios.post(api, formdata)
+            let rsp = await axios.post(api,formdata)
 
             console.log(rsp.data);
 
@@ -72,7 +72,7 @@ const InsertData = () => {
 
 
 
-            <input type="file" name='image' onChange={imageHandler} />
+            <input type="file" name='imgkey' onChange={imageHandler} />
             <br />
 
             <button onClick={submitHandler}   >Submit</button>

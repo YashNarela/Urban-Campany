@@ -9,6 +9,8 @@ require("dotenv").config();
 
 app.use(cors());
 
+
+app.use("/static"  ,express.static("uploads"));
 var jsonParser = bodyParser.json();
 
 app.use(jsonParser)
